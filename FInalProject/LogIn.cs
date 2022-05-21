@@ -122,5 +122,10 @@ namespace FInalProject
         {
 
         }
+
+        private void bt_Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

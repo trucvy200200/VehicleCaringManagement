@@ -40,5 +40,24 @@ namespace FInalProject
             label_Name.Text = "Hello " + user.Rows[0]["FirstName"] + " " + user.Rows[0]["LastName"] +
                 "\nYou are the manager";
         }
+
+        private void addWorkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddWorkForm frm = new AddWorkForm();
+            frm.Show(this);
+        }
+
+        private void deleteWorkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveWorkForm frm = new RemoveWorkForm();
+            frm.Show(this);
+
+        }
+
+        private void updateWorkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateWorkForm frm = new UpdateWorkForm();
+            frm.Show(this);
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace FInalProject
     class My_DB
     {
         SqlConnection con = new SqlConnection(
-            @"Data Source=(localdb)\ProjectsV13;Initial Catalog=FinalProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FinalProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         public SqlConnection getConnection
         {
             get { return con; }

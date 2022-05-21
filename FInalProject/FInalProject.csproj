@@ -92,10 +92,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNewStaff.cs">
+    <Compile Include="WorkListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewStaff.Designer.cs">
+    <Compile Include="WorkListForm.Designer.cs">
+      <DependentUpon>WorkListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\RemoveWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work\RemoveWorkForm.Designer.cs">
+      <DependentUpon>RemoveWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\UpdateWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work\UpdateWorkForm.Designer.cs">
+      <DependentUpon>UpdateWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\AddWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work\AddWorkForm.Designer.cs">
+      <DependentUpon>AddWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\AddNewStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\AddNewStaff.Designer.cs">
       <DependentUpon>AddNewStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -134,7 +158,17 @@
     </Compile>
     <Compile Include="Classes\Staff.cs" />
     <Compile Include="Classes\Vehicle.cs" />
-    <EmbeddedResource Include="AddNewStaff.resx">
+    <Compile Include="Classes\Work.cs" />
+    <EmbeddedResource Include="Work\RemoveWorkForm.resx">
+      <DependentUpon>RemoveWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\UpdateWorkForm.resx">
+      <DependentUpon>UpdateWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\AddWorkForm.resx">
+      <DependentUpon>AddWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\AddNewStaff.resx">
       <DependentUpon>AddNewStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
