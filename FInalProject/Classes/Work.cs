@@ -103,5 +103,17 @@ namespace FInalProject
             adapter.Fill(table);
             return table;
         }
+        string execCount(string query)
+        {
+            SqlCommand cmd = new SqlCommand(query, mydb.getConnection);
+            mydb.openConnection();
+            String count = cmd.ExecuteScalar().ToString();
+            mydb.closeConnection();
+            return count;
+        }
+        public string totalWorks()
+        {
+            return execCount("Select count(*) from Work");
+        }
     }
 }

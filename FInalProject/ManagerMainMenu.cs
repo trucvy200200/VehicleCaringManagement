@@ -59,5 +59,17 @@ namespace FInalProject
             UpdateWorkForm frm = new UpdateWorkForm();
             frm.Show(this);
         }
+
+        private void workListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageWorkForm frm = new ManageWorkForm();
+            frm.Show(this);
+        }
+
+        private void receiveVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainMenu_Intaker frm = new MainMenu_Intaker();
+            frm.Show(this);
+        }
     }
 }

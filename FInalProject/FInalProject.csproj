@@ -92,10 +92,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WorkListForm.cs">
+    <Compile Include="UpdateRemoveVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkListForm.Designer.cs">
+    <Compile Include="UpdateRemoveVehicleForm.Designer.cs">
+      <DependentUpon>UpdateRemoveVehicleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\WorkListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work\WorkListForm.Designer.cs">
       <DependentUpon>WorkListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Work\RemoveWorkForm.cs">
@@ -159,6 +165,12 @@
     <Compile Include="Classes\Staff.cs" />
     <Compile Include="Classes\Vehicle.cs" />
     <Compile Include="Classes\Work.cs" />
+    <EmbeddedResource Include="UpdateRemoveVehicleForm.resx">
+      <DependentUpon>UpdateRemoveVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\WorkListForm.resx">
+      <DependentUpon>WorkListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Work\RemoveWorkForm.resx">
       <DependentUpon>RemoveWorkForm.cs</DependentUpon>
     </EmbeddedResource>

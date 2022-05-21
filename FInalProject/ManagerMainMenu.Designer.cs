@@ -44,6 +44,12 @@ namespace FInalProject
             this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_Name = new System.Windows.Forms.Label();
             this.workListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receiveVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeVehicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.garageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateSlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +58,12 @@ namespace FInalProject
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.managerToolStripMenuItem,
+            this.vehicleToolStripMenuItem,
+            this.garageToolStripMenuItem,
             this.workToolStripMenuItem,
             this.certificateToolStripMenuItem,
-            this.revenueToolStripMenuItem});
+            this.revenueToolStripMenuItem,
+            this.managerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -166,7 +174,51 @@ namespace FInalProject
             // 
             this.workListToolStripMenuItem.Name = "workListToolStripMenuItem";
             this.workListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.workListToolStripMenuItem.Text = "Work List";
+            this.workListToolStripMenuItem.Text = "Manage Work Form";
+            this.workListToolStripMenuItem.Click += new System.EventHandler(this.workListToolStripMenuItem_Click);
+            // 
+            // vehicleToolStripMenuItem
+            // 
+            this.vehicleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.receiveVehicleToolStripMenuItem,
+            this.removeVehicleToolStripMenuItem,
+            this.statisticToolStripMenuItem});
+            this.vehicleToolStripMenuItem.Name = "vehicleToolStripMenuItem";
+            this.vehicleToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.vehicleToolStripMenuItem.Text = "Vehicle";
+            // 
+            // receiveVehicleToolStripMenuItem
+            // 
+            this.receiveVehicleToolStripMenuItem.Name = "receiveVehicleToolStripMenuItem";
+            this.receiveVehicleToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.receiveVehicleToolStripMenuItem.Text = "Receive Vehicle";
+            this.receiveVehicleToolStripMenuItem.Click += new System.EventHandler(this.receiveVehicleToolStripMenuItem_Click);
+            // 
+            // removeVehicleToolStripMenuItem
+            // 
+            this.removeVehicleToolStripMenuItem.Name = "removeVehicleToolStripMenuItem";
+            this.removeVehicleToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.removeVehicleToolStripMenuItem.Text = "Update/Remove Vehicle";
+            // 
+            // garageToolStripMenuItem
+            // 
+            this.garageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateSlotToolStripMenuItem});
+            this.garageToolStripMenuItem.Name = "garageToolStripMenuItem";
+            this.garageToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.garageToolStripMenuItem.Text = "Garage";
+            // 
+            // updateSlotToolStripMenuItem
+            // 
+            this.updateSlotToolStripMenuItem.Name = "updateSlotToolStripMenuItem";
+            this.updateSlotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateSlotToolStripMenuItem.Text = "Update Slot";
+            // 
+            // statisticToolStripMenuItem
+            // 
+            this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
+            this.statisticToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.statisticToolStripMenuItem.Text = "Statistic";
             // 
             // ManagerMainMenu
             // 
@@ -204,5 +256,11 @@ namespace FInalProject
         private System.Windows.Forms.ToolStripMenuItem rentCertificateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem receiveVehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeVehicleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem garageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateSlotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statisticToolStripMenuItem;
     }
 }

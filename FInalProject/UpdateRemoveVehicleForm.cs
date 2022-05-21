@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FInalProject
 {
-    public partial class WorkListForm : Form
+    public partial class UpdateRemoveVehicleForm : Form
     {
-        public WorkListForm()
+        public UpdateRemoveVehicleForm()
         {
             InitializeComponent();
         }
