@@ -20,69 +20,87 @@ namespace FInalProject
         //All will be reuse multiple times
         private My_DB db = new My_DB();
         private DataTable table = new DataTable();
-        private SqlCommand cmd = new SqlCommand();
+        private SqlCommand command = new SqlCommand();
         private SqlDataAdapter adapter = new SqlDataAdapter();
         private void button_LogIn_Click(object sender, EventArgs e)
         {
-            if (textBox_Password.Text.Trim() == "" || textBox_UserName.Text.Trim() == "")
+            table = new DataTable();
+            if (verif())
             {
-                MessageBox.Show("User name or password is empty!", "Log in", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (radioButton_staff.Checked)
+                {
+                    command = new SqlCommand("SELECT * FROM Login WHERE username=@User AND password=@Pass", db.getConnection);
+                    command.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
+                    command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = textBox_Password.Text;
+                    adapter.SelectCommand = command;
+                    adapter.Fill(table);
+
+                    if (table.Rows.Count > 0)
+                    {
+                        int id = Globals.GlobalUserId;
+                        int x = Convert.ToInt32(table.Rows[0]["Id"]);
+                        Globals.SetGlobalUserId(x);
+                        ManagerMainMenu mainfrm = new ManagerMainMenu();
+                        mainfrm.id = x;
+                        mainfrm.Show(this);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (radioButtonHuman.Checked)
+                {
+                    command = new SqlCommand("SELECT * FROM hr WHERE uname=@User AND pwd=@Pass", db.getConnection);
+                    command.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
+                    command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = textBox_Password.Text;
+                    adapter.SelectCommand = command;
+                    adapter.Fill(table);
+
+                    if (table.Rows.Count > 0)
+                    {
+                        int id = Globals.GlobalUserId;
+                        int x = Convert.ToInt32(table.Rows[0][0]);
+                        Globals.SetGlobalUserId(x);
+                        ContactForm mainfrm = new ContactForm();
+                        mainfrm.Show(this);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
-                if(table.Rows.Count==0)
-                {
-                    MessageBox.Show("Incorrect user name or password!", "Log in", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (textBox_Password.Text == table.Rows[0]["Password"].ToString())
-                {
-                    //MessageBox.Show("Loged in", "Log in", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if(table.Rows[0]["Type"].ToString()=="Manager")
-                    {
-                        Hide();
-                        ManagerMainMenu frm = new ManagerMainMenu();
-                        frm.id = int.Parse(table.Rows[0]["Id"].ToString());
-                        frm.ShowDialog();
-                        textBox_Password.Clear();
-                        Show();
-                    }
-                    else if(table.Rows[0]["Type"].ToString() =="Intaker")
-                    {
-                        MainMenu_Intaker frm = new MainMenu_Intaker();
-                        frm.id = int.Parse(table.Rows[0]["Id"].ToString());
-                        frm.ShowDialog();
-                        textBox_Password.Clear();
-                        Show();
-                    }
-                    else if (table.Rows[0]["Type"].ToString() == "Outtaker")
-                    {
-                        MainMenu_Outtaker frm = new MainMenu_Outtaker();
-                        frm.id = int.Parse(table.Rows[0]["Id"].ToString());
-                        frm.ShowDialog();
-                        textBox_Password.Clear();
-                        Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect user name or password!", "Log in", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Empty Field", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    
 
-
-        //if user leave this textbox, fill the table with all information that matches the user name (must be 1 or 0 match)
-        //Reson: faster
-        //       When click on the login button it can only compare the textbox with the table
-        private void textBox_UserName_Leave(object sender, EventArgs e)
+    bool verif()
+    {
+        if ((textBox_UserName.Text.Trim() == "") || (textBox_Password.Text.Trim() == ""))
         {
-            table.Clear();
-            cmd = new SqlCommand("SELECT * FROM Login WHERE username = @User", db.getConnection);
-            db.openConnection();
-            cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
-            adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(table);
-            db.closeConnection();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    //if user leave this textbox, fill the table with all information that matches the user name (must be 1 or 0 match)
+    //Reson: faster
+    //       When click on the login button it can only compare the textbox with the table
+    private void textBox_UserName_Leave(object sender, EventArgs e)
+        {
+            //table.Clear();
+            //command = new SqlCommand("SELECT * FROM Login WHERE username = @User", db.getConnection);
+            //db.openConnection();
+            //command.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
+            //adapter = new SqlDataAdapter(command);
+            //adapter.Fill(table);
+            //db.closeConnection();
             //if(table.Rows.Count!=1)
             //{
             //    MessageBox.Show("Empty");
@@ -96,10 +114,10 @@ namespace FInalProject
         private void textBox_UserName_TextChanged(object sender, EventArgs e)
         {
             //table.Clear();
-            //cmd = new SqlCommand("SELECT * FROM Login WHERE username = @User", db.getConnection);
+            //command = new SqlCommand("SELECT * FROM Login WHERE username = @User", db.getConnection);
             //db.openConnection();
-            //cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
-            //adapter = new SqlDataAdapter(cmd);
+            //command.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
+            //adapter = new SqlDataAdapter(command);
             //adapter.Fill(table);
             //db.closeConnection();
         }
@@ -110,10 +128,10 @@ namespace FInalProject
             frm.ShowDialog();
             textBox_Password.Clear();
             table.Clear();
-            cmd = new SqlCommand("SELECT * FROM Login WHERE username = @User", db.getConnection);
+            command = new SqlCommand("SELECT * FROM Login WHERE username = @User", db.getConnection);
             db.openConnection();
-            cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
-            adapter = new SqlDataAdapter(cmd);
+            command.Parameters.Add("@User", SqlDbType.VarChar).Value = textBox_UserName.Text;
+            adapter = new SqlDataAdapter(command);
             adapter.Fill(table);
             db.closeConnection();
         }

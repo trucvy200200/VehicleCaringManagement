@@ -19,27 +19,34 @@ namespace FInalProject
         Work wo = new Work();
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            string name = Name.Text;
-            string desc = Description.Text;
-            int id = (int)ComboBoxWork.SelectedValue;
-            if (!wo.checkWorkName(name, Convert.ToInt32(ComboBoxWork.SelectedValue)))
+            try
             {
-                MessageBox.Show("This Work Name Already Exist", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                string name = Name.Text;
+                string desc = Description.Text;
+                int id = (int)ComboBoxWork.SelectedValue;
+                if (!wo.checkWorkName(name, Convert.ToInt32(ComboBoxWork.SelectedValue)))
+                {
+                    MessageBox.Show("This Work Name Already Exist", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if (wo.EditWork(id, name, desc))
+                {
+                    MessageBox.Show("Work Updated", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    fillCombo(ComboBoxWork.SelectedIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Work Not Updated", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else if (wo.EditWork(id, name, desc))
+            catch
             {
-                MessageBox.Show("Work Updated", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                fillCombo(ComboBoxWork.SelectedIndex);
-            }
-            else
-            {
-                MessageBox.Show("Work Not Updated", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Something wrong (Empty field/Wrong format)", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         public void fillCombo(int index)
         {
             ComboBoxWork.DataSource = wo.getAllWork();
-            ComboBoxWork.DisplayMember = "id";
+            ComboBoxWork.DisplayMember = "Name";
             ComboBoxWork.ValueMember = "id";
             ComboBoxWork.SelectedIndex = index;
         }
@@ -60,7 +67,7 @@ namespace FInalProject
         private void UpdateWorkForm_Load(object sender, EventArgs e)
         {
             ComboBoxWork.DataSource = wo.getAllWork();
-            ComboBoxWork.DisplayMember = "id";
+            ComboBoxWork.DisplayMember = "Name";
             ComboBoxWork.ValueMember = "id";
             ComboBoxWork.SelectedItem = null;
         }

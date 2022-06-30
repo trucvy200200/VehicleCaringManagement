@@ -57,6 +57,7 @@ namespace FInalProject
                     if (wo.insertWork(id, name, desc))
                     {
                         MessageBox.Show("New Work Inserted", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reloadListBoxData();
                     }
                     else
                     {

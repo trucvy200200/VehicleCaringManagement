@@ -65,6 +65,7 @@
             this.btn_Find.TabIndex = 12;
             this.btn_Find.Text = "FIND";
             this.btn_Find.UseVisualStyleBackColor = false;
+            this.btn_Find.Click += new System.EventHandler(this.btn_Find_Click);
             // 
             // TextBoxID
             // 

@@ -84,7 +84,7 @@ namespace FInalProject
                 mail.Subject = "Reset password";
                 mail.Body = OTP + " is your OTP to reset password";
                 sever.Port = 587;
-                sever.Credentials = new NetworkCredential("voduchoangphi@gmail.com", "phi09phi09");
+                sever.Credentials = new NetworkCredential("20110432@student.hcmute.edu.vn", "Phi09Phi09");
                 sever.EnableSsl = true;
                 sever.Send(mail);
                 MessageBox.Show("Success!");

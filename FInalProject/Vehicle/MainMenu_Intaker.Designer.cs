@@ -62,28 +62,31 @@ namespace FInalProject
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.informationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(737, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.informationToolStripMenuItem.Text = "Information";
             // 
             // pictureBox_Vehicle
             // 
+            this.pictureBox_Vehicle.BackColor = System.Drawing.Color.MintCream;
             this.pictureBox_Vehicle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_Vehicle.Location = new System.Drawing.Point(12, 40);
+            this.pictureBox_Vehicle.Location = new System.Drawing.Point(9, 32);
+            this.pictureBox_Vehicle.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Vehicle.Name = "pictureBox_Vehicle";
-            this.pictureBox_Vehicle.Size = new System.Drawing.Size(308, 263);
+            this.pictureBox_Vehicle.Size = new System.Drawing.Size(232, 214);
             this.pictureBox_Vehicle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Vehicle.TabIndex = 1;
             this.pictureBox_Vehicle.TabStop = false;
@@ -91,17 +94,19 @@ namespace FInalProject
             // textBox_Number
             // 
             this.textBox_Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Number.Location = new System.Drawing.Point(12, 322);
+            this.textBox_Number.Location = new System.Drawing.Point(9, 262);
+            this.textBox_Number.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Number.Name = "textBox_Number";
-            this.textBox_Number.Size = new System.Drawing.Size(308, 34);
+            this.textBox_Number.Size = new System.Drawing.Size(232, 29);
             this.textBox_Number.TabIndex = 2;
             // 
             // button_Vehicle
             // 
             this.button_Vehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Vehicle.Location = new System.Drawing.Point(657, 40);
+            this.button_Vehicle.Location = new System.Drawing.Point(493, 32);
+            this.button_Vehicle.Margin = new System.Windows.Forms.Padding(2);
             this.button_Vehicle.Name = "button_Vehicle";
-            this.button_Vehicle.Size = new System.Drawing.Size(225, 43);
+            this.button_Vehicle.Size = new System.Drawing.Size(169, 35);
             this.button_Vehicle.TabIndex = 3;
             this.button_Vehicle.Text = "Load vehicle";
             this.button_Vehicle.UseVisualStyleBackColor = true;
@@ -110,9 +115,10 @@ namespace FInalProject
             // button_Driver
             // 
             this.button_Driver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Driver.Location = new System.Drawing.Point(657, 89);
+            this.button_Driver.Location = new System.Drawing.Point(493, 72);
+            this.button_Driver.Margin = new System.Windows.Forms.Padding(2);
             this.button_Driver.Name = "button_Driver";
-            this.button_Driver.Size = new System.Drawing.Size(225, 43);
+            this.button_Driver.Size = new System.Drawing.Size(169, 35);
             this.button_Driver.TabIndex = 4;
             this.button_Driver.Text = "Load driver";
             this.button_Driver.UseVisualStyleBackColor = true;
@@ -120,12 +126,14 @@ namespace FInalProject
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.CadetBlue;
             this.panel1.Controls.Add(this.radioButton_Moto);
             this.panel1.Controls.Add(this.radioButton_Car);
             this.panel1.Controls.Add(this.radioButton_Bike);
-            this.panel1.Location = new System.Drawing.Point(657, 195);
+            this.panel1.Location = new System.Drawing.Point(493, 158);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(119, 108);
+            this.panel1.Size = new System.Drawing.Size(89, 88);
             this.panel1.TabIndex = 5;
             // 
             // radioButton_Moto
@@ -133,9 +141,10 @@ namespace FInalProject
             this.radioButton_Moto.AutoSize = true;
             this.radioButton_Moto.Checked = true;
             this.radioButton_Moto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Moto.Location = new System.Drawing.Point(3, 38);
+            this.radioButton_Moto.Location = new System.Drawing.Point(2, 31);
+            this.radioButton_Moto.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Moto.Name = "radioButton_Moto";
-            this.radioButton_Moto.Size = new System.Drawing.Size(113, 29);
+            this.radioButton_Moto.Size = new System.Drawing.Size(92, 24);
             this.radioButton_Moto.TabIndex = 2;
             this.radioButton_Moto.TabStop = true;
             this.radioButton_Moto.Text = "Motobike";
@@ -146,9 +155,10 @@ namespace FInalProject
             // 
             this.radioButton_Car.AutoSize = true;
             this.radioButton_Car.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Car.Location = new System.Drawing.Point(3, 73);
+            this.radioButton_Car.Location = new System.Drawing.Point(2, 59);
+            this.radioButton_Car.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Car.Name = "radioButton_Car";
-            this.radioButton_Car.Size = new System.Drawing.Size(65, 29);
+            this.radioButton_Car.Size = new System.Drawing.Size(52, 24);
             this.radioButton_Car.TabIndex = 1;
             this.radioButton_Car.Text = "Car";
             this.radioButton_Car.UseVisualStyleBackColor = true;
@@ -158,9 +168,10 @@ namespace FInalProject
             // 
             this.radioButton_Bike.AutoSize = true;
             this.radioButton_Bike.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Bike.Location = new System.Drawing.Point(3, 3);
+            this.radioButton_Bike.Location = new System.Drawing.Point(2, 2);
+            this.radioButton_Bike.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Bike.Name = "radioButton_Bike";
-            this.radioButton_Bike.Size = new System.Drawing.Size(71, 29);
+            this.radioButton_Bike.Size = new System.Drawing.Size(58, 24);
             this.radioButton_Bike.TabIndex = 0;
             this.radioButton_Bike.Text = "Bike";
             this.radioButton_Bike.UseVisualStyleBackColor = true;
@@ -168,10 +179,12 @@ namespace FInalProject
             // 
             // pictureBox_Driver
             // 
+            this.pictureBox_Driver.BackColor = System.Drawing.Color.MintCream;
             this.pictureBox_Driver.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_Driver.Location = new System.Drawing.Point(343, 40);
+            this.pictureBox_Driver.Location = new System.Drawing.Point(257, 32);
+            this.pictureBox_Driver.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Driver.Name = "pictureBox_Driver";
-            this.pictureBox_Driver.Size = new System.Drawing.Size(308, 263);
+            this.pictureBox_Driver.Size = new System.Drawing.Size(232, 214);
             this.pictureBox_Driver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Driver.TabIndex = 6;
             this.pictureBox_Driver.TabStop = false;
@@ -179,9 +192,10 @@ namespace FInalProject
             // button_Approve
             // 
             this.button_Approve.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Approve.Location = new System.Drawing.Point(704, 309);
+            this.button_Approve.Location = new System.Drawing.Point(528, 251);
+            this.button_Approve.Margin = new System.Windows.Forms.Padding(2);
             this.button_Approve.Name = "button_Approve";
-            this.button_Approve.Size = new System.Drawing.Size(138, 43);
+            this.button_Approve.Size = new System.Drawing.Size(104, 35);
             this.button_Approve.TabIndex = 7;
             this.button_Approve.Text = "Approve";
             this.button_Approve.UseVisualStyleBackColor = true;
@@ -190,9 +204,10 @@ namespace FInalProject
             // button_Refresh
             // 
             this.button_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Refresh.Location = new System.Drawing.Point(657, 138);
+            this.button_Refresh.Location = new System.Drawing.Point(493, 112);
+            this.button_Refresh.Margin = new System.Windows.Forms.Padding(2);
             this.button_Refresh.Name = "button_Refresh";
-            this.button_Refresh.Size = new System.Drawing.Size(225, 43);
+            this.button_Refresh.Size = new System.Drawing.Size(169, 35);
             this.button_Refresh.TabIndex = 8;
             this.button_Refresh.Text = "Refresh";
             this.button_Refresh.UseVisualStyleBackColor = true;
@@ -200,20 +215,23 @@ namespace FInalProject
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.CadetBlue;
             this.panel2.Controls.Add(this.radioButton_Long);
             this.panel2.Controls.Add(this.radioButton_Short);
-            this.panel2.Location = new System.Drawing.Point(783, 198);
+            this.panel2.Location = new System.Drawing.Point(587, 161);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(147, 100);
+            this.panel2.Size = new System.Drawing.Size(110, 81);
             this.panel2.TabIndex = 9;
             // 
             // radioButton_Long
             // 
             this.radioButton_Long.AutoSize = true;
             this.radioButton_Long.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Long.Location = new System.Drawing.Point(3, 54);
+            this.radioButton_Long.Location = new System.Drawing.Point(2, 44);
+            this.radioButton_Long.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Long.Name = "radioButton_Long";
-            this.radioButton_Long.Size = new System.Drawing.Size(120, 29);
+            this.radioButton_Long.Size = new System.Drawing.Size(99, 24);
             this.radioButton_Long.TabIndex = 12;
             this.radioButton_Long.Text = "Long term";
             this.radioButton_Long.UseVisualStyleBackColor = true;
@@ -224,9 +242,10 @@ namespace FInalProject
             this.radioButton_Short.AutoSize = true;
             this.radioButton_Short.Checked = true;
             this.radioButton_Short.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Short.Location = new System.Drawing.Point(3, 19);
+            this.radioButton_Short.Location = new System.Drawing.Point(2, 15);
+            this.radioButton_Short.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Short.Name = "radioButton_Short";
-            this.radioButton_Short.Size = new System.Drawing.Size(123, 29);
+            this.radioButton_Short.Size = new System.Drawing.Size(102, 24);
             this.radioButton_Short.TabIndex = 11;
             this.radioButton_Short.TabStop = true;
             this.radioButton_Short.Text = "Short term";
@@ -236,14 +255,15 @@ namespace FInalProject
             // numericUpDown_Time
             // 
             this.numericUpDown_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown_Time.Location = new System.Drawing.Point(343, 322);
+            this.numericUpDown_Time.Location = new System.Drawing.Point(257, 262);
+            this.numericUpDown_Time.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown_Time.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown_Time.Name = "numericUpDown_Time";
-            this.numericUpDown_Time.Size = new System.Drawing.Size(308, 34);
+            this.numericUpDown_Time.Size = new System.Drawing.Size(231, 29);
             this.numericUpDown_Time.TabIndex = 10;
             this.numericUpDown_Time.Value = new decimal(new int[] {
             1,
@@ -255,10 +275,12 @@ namespace FInalProject
             // label_Time
             // 
             this.label_Time.AutoSize = true;
+            this.label_Time.BackColor = System.Drawing.Color.White;
             this.label_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Time.Location = new System.Drawing.Point(541, 331);
+            this.label_Time.Location = new System.Drawing.Point(421, 269);
+            this.label_Time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_Time.Name = "label_Time";
-            this.label_Time.Size = new System.Drawing.Size(55, 20);
+            this.label_Time.Size = new System.Drawing.Size(46, 17);
             this.label_Time.TabIndex = 11;
             this.label_Time.Text = "Hours";
             // 
@@ -266,18 +288,22 @@ namespace FInalProject
             // 
             this.dateTimePicker_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_Time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker_Time.Location = new System.Drawing.Point(343, 372);
+            this.dateTimePicker_Time.Location = new System.Drawing.Point(257, 302);
+            this.dateTimePicker_Time.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_Time.Name = "dateTimePicker_Time";
-            this.dateTimePicker_Time.Size = new System.Drawing.Size(308, 34);
+            this.dateTimePicker_Time.Size = new System.Drawing.Size(232, 29);
             this.dateTimePicker_Time.TabIndex = 12;
             this.dateTimePicker_Time.ValueChanged += new System.EventHandler(this.dateTimePicker_Time_ValueChanged);
             // 
             // label_Now
             // 
             this.label_Now.AutoSize = true;
-            this.label_Now.Location = new System.Drawing.Point(701, 372);
+            this.label_Now.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Now.ForeColor = System.Drawing.Color.Red;
+            this.label_Now.Location = new System.Drawing.Point(526, 302);
+            this.label_Now.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_Now.Name = "label_Now";
-            this.label_Now.Size = new System.Drawing.Size(73, 17);
+            this.label_Now.Size = new System.Drawing.Size(82, 20);
             this.label_Now.TabIndex = 13;
             this.label_Now.Text = "label_Now";
             // 
@@ -290,18 +316,22 @@ namespace FInalProject
             // label_Test
             // 
             this.label_Test.AutoSize = true;
-            this.label_Test.Location = new System.Drawing.Point(549, 446);
+            this.label_Test.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Test.ForeColor = System.Drawing.Color.Red;
+            this.label_Test.Location = new System.Drawing.Point(412, 362);
+            this.label_Test.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_Test.Name = "label_Test";
-            this.label_Test.Size = new System.Drawing.Size(33, 17);
+            this.label_Test.Size = new System.Drawing.Size(38, 20);
             this.label_Test.TabIndex = 14;
             this.label_Test.Text = "See";
             this.label_Test.Visible = false;
             // 
             // MainMenu_Intaker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 497);
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ClientSize = new System.Drawing.Size(737, 404);
             this.Controls.Add(this.label_Test);
             this.Controls.Add(this.label_Now);
             this.Controls.Add(this.dateTimePicker_Time);
@@ -318,6 +348,7 @@ namespace FInalProject
             this.Controls.Add(this.pictureBox_Vehicle);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu_Intaker";
             this.Tag = "";
             this.Text = " ";

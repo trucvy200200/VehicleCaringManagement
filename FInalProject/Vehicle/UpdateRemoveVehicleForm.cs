@@ -16,5 +16,10 @@ namespace FInalProject
         {
             InitializeComponent();
         }
+
+        private void btn_Find_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

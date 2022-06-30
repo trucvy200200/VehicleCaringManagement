@@ -89,7 +89,7 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(42, 150);
+            this.label4.Location = new System.Drawing.Point(34, 150);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 23);
             this.label4.TabIndex = 10;
@@ -111,6 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(557, 375);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.Description);
@@ -121,6 +122,7 @@
             this.Controls.Add(this.label1);
            
             this.Text = "AddWorkForm";
+            this.Load += new System.EventHandler(this.AddWorkForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

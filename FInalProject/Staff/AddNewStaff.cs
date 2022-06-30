@@ -69,7 +69,7 @@ namespace FInalProject
                     mail.Body = "Welcom to our company " + textBox_FirstName.Text + " " + textBox_LastName.Text +
                         "\nYour user name is " + textBox_UserName.Text + " Your password is 1, please change your password ASAP";
                     sever.Port = 587;
-                    sever.Credentials = new NetworkCredential("voduchoangphi@gmail.com", "phi09phi09");
+                    sever.Credentials = new NetworkCredential("20110432@student.hcmute.edu.vn", "Phi09Phi09");
                     sever.EnableSsl = true;
                     sever.Send(mail);
                     //MessageBox.Show("Success!");
@@ -96,7 +96,8 @@ namespace FInalProject
             adapter = new SqlDataAdapter(cmd);
             adapter.Fill(table);
             //Add type
-            comboBox_Type.Items.Add("Manager");
+            comboBox_Type.Items.Add("Repair");
+            comboBox_Type.Items.Add("Wash");
             comboBox_Type.Items.Add("Intaker");
             comboBox_Type.Items.Add("Outtaker");
             comboBox_Type.Text = comboBox_Type.Items[0].ToString();
@@ -106,6 +107,11 @@ namespace FInalProject
         private void button_Cancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void comboBox_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

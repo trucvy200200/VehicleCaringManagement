@@ -37,7 +37,7 @@ namespace FInalProject
             db.closeConnection();
             //Add====================================================
             cmd = new SqlCommand("INSERT INTO Vehicle (Id, Back, Number, Driver, TimeIn, Duration, Type, Garage) " +
-                " VALUES (@id, @back, @num, @driver, @in, @out, @type)", db.getConnection);
+                " VALUES (@id, @back, @num, @driver, @in, @out, @type, @garage)", db.getConnection);
             db.openConnection();
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@back", SqlDbType.Image).Value = BackImage.ToArray();
@@ -65,8 +65,7 @@ namespace FInalProject
                 MessageBox.Show("Fail to add new vehicle to garage!", "Add new vehicle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             //Reduce capacity========================================
-            if (type != "Bike")
-            {
+            if (type == "Bike") type = "Moto";
                 cmd = new SqlCommand("SELECT Short" + type + " FROM Capacity", db.getConnection);
                 //Reuse the "id"
                 id = (int)cmd.ExecuteScalar();
@@ -78,7 +77,7 @@ namespace FInalProject
                 {
                     MessageBox.Show("Fail to adjust the garage capcity!", "Add new vehicle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+            
             db.closeConnection();
         }
         public void AddToLongGarage(MemoryStream BackImage, string VehicleNumber, MemoryStream Driver,
@@ -133,19 +132,18 @@ namespace FInalProject
                 return;
             }
             //Reduce capacity========================================
-            if (type != "Bike")
+            if (type == "Bike") type = "Moto";
+            cmd = new SqlCommand("SELECT Long" + type + " FROM Capacity", db.getConnection);
+            //Reuse the "id"
+            id = (int)cmd.ExecuteScalar();
+            id--;
+            cmd = new SqlCommand("UPDATE Capacity SET Long" + type + " = @id", db.getConnection);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            if (cmd.ExecuteNonQuery() != 1)
             {
-                cmd = new SqlCommand("SELECT Long" + type + " FROM Capacity", db.getConnection);
-                //Reuse the "id"
-                id = (int)cmd.ExecuteScalar();
-                id--;
-                cmd = new SqlCommand("UPDATE Capacity SET Long" + type + " = @id", db.getConnection);
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                if (cmd.ExecuteNonQuery()!=1)
-                {
-                    MessageBox.Show("Fail to adjust the garage capcity!", "Add new vehicle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Fail to adjust the garage capcity!", "Add new vehicle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
             db.closeConnection();
         }
         public bool CheckFull(string type, string Garage)
@@ -162,12 +160,116 @@ namespace FInalProject
         }
         public DataTable GetVehicle(SqlCommand cmd)
         {
+            cmd.Connection = db.getConnection;
             DataTable table = new DataTable();
             db.openConnection();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(table);
             db.closeConnection();
             return table;
+        }
+        
+        public bool checkVehicleID(int id)
+        {
+            SqlCommand cmd = new SqlCommand("Select * From Vehicle Where id=@id", db.getConnection);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            if ((table.Rows.Count > 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void RemoveVehicle(int id, int fee)
+        {
+            //if(!checkVehicleID(id))
+            //{
+            //    MessageBox.Show("ID not found!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //Check id===================================================================
+            My_DB db = new My_DB();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Vehicle WHERE ID = @id", db.getConnection);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            db.openConnection();
+            adapter.Fill(table);
+            if(table.Rows.Count<=0)
+            {
+                MessageBox.Show("ID not found!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db.closeConnection();
+                return;
+            }
+            string garage = (string)table.Rows[0]["Garage"];
+            //Remove from Vehicle========================================================
+            cmd = new SqlCommand("DELETE FROM Vehicle WHERE ID = @id", db.getConnection);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            if(cmd.ExecuteNonQuery()==0)
+            {
+                MessageBox.Show("Fail to remove from database!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db.closeConnection();
+                return;
+            }
+            //Remove from Garage=========================================================
+            cmd = new SqlCommand("DELETE FROM " + garage + "Garage WHERE ID = @id", db.getConnection);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                MessageBox.Show("Fail to remove from database!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db.closeConnection();
+                return;
+            }
+            //Increase capacity==========================================================
+            //Get capacity=
+            string type = (string)table.Rows[0]["Type"];
+            if (type == "Bike") type = "Moto";
+            cmd = new SqlCommand("UPDATE Capacity SET " + garage + type + " = " + garage + type + " + 1", db.getConnection);
+            if(cmd.ExecuteNonQuery()==0)
+            {
+                MessageBox.Show("Fail to adjust capacity!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                db.closeConnection();
+                return;
+            }
+            //Update revenue=============================================================
+            cmd = new SqlCommand("SELECT * FROM Revenue WHERE Datee = @date", db.getConnection);
+            cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.Date;
+            adapter = new SqlDataAdapter(cmd);
+            table = new DataTable();
+            adapter.Fill(table);
+            //New date===============================================
+            if(table.Rows.Count==0)
+            {
+                cmd = new SqlCommand("INSERT INTO Revenue VALUES (@date, @money)", db.getConnection);
+                cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.Date;
+                cmd.Parameters.Add("@money", SqlDbType.Int).Value = fee;
+                if(cmd.ExecuteNonQuery()==0)
+                {
+                    MessageBox.Show("Fail to adjust revenue!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    db.closeConnection();
+                    return;
+                }
+            }
+            //Update the existed data================================
+            else
+            {
+                cmd = new SqlCommand("UPDATE Revenue SET Money = Money + @fee WHERE Datee = @date", db.getConnection);
+                cmd.Parameters.Add("@fee", SqlDbType.Int).Value = fee;
+                cmd.Parameters.Add("@date", SqlDbType.Date).Value = DateTime.Now.Date;
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("Fail to adjust revenue!", "Remove vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    db.closeConnection();
+                    return;
+                }
+            }
+            MessageBox.Show("Vehicle removed!", "Remove car", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            db.closeConnection();
         }
     }
 }

@@ -102,18 +102,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(265, 36);
+            this.label1.Location = new System.Drawing.Point(145, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 27);
+            this.label1.Size = new System.Drawing.Size(161, 27);
             this.label1.TabIndex = 19;
-            this.label1.Text = "ID:";
+            this.label1.Text = "Select Work:";
             // 
             // UpdateWorkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Teal;
+            this.ClientSize = new System.Drawing.Size(800, 384);
             this.Controls.Add(this.ComboBoxWork);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.Description);
@@ -121,7 +121,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-          
+            
             this.Load += new System.EventHandler(this.UpdateWorkForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

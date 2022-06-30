@@ -58,7 +58,7 @@ namespace FInalProject
                     {
                         radioButton_Short.Checked = true;
                         textBox_Duration.Text = table.Rows[0]["Duration"].ToString();
-                        textBox_Exceed.Text = (span.Hours - int.Parse(textBox_Duration.Text)).ToString();
+                        textBox_Exceed.Text = ((span.Hours - int.Parse(textBox_Duration.Text)) + span.Days * 24).ToString();
                         if (int.Parse(textBox_Exceed.Text) <= 1) textBox_Exceed.Text = "0";
                         //textBox_Duration.Text += " Hours";
                     }
@@ -109,6 +109,34 @@ namespace FInalProject
             {
                 MessageBox.Show("Incorrect format!", "Find vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button_Refresh_Click(object sender, EventArgs e)
+        {
+            pictureBox_Driver.Image = null;
+            pictureBox_Driver1.Image = null;
+            pictureBox_Vehicle.Image = null;
+            pictureBox_Vehicle1.Image = null;
+            textBox_ID.Clear();
+            textBox_Number.Clear();
+            textBox_TimeIn.Clear();
+            textBox_Duration.Clear();
+            textBox_Exceed.Clear();
+            textBox_Basic.Clear();
+            textBox_Fine.Clear();
+            textBox_Total.Clear();
+        }
+
+        private void button_Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button_Charge_Click(object sender, EventArgs e)
+        {
+            Vehicle v = new Vehicle();
+            v.RemoveVehicle(int.Parse(textBox_ID.Text), int.Parse(textBox_Total.Text));
+            button_Refresh_Click(sender, e);
         }
     }
 }

@@ -56,6 +56,10 @@
     <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -78,6 +82,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,13 +95,185 @@
     <Reference Include="Tesseract, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Tesseract.4.1.1\lib\net45\Tesseract.dll</HintPath>
     </Reference>
+    <Reference Include="Xceed.Document.NET, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.2.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Pdf, Version=2.3.22263.20500, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xceed.Pdf.2.3.22263.20500\lib\net40\Xceed.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.2.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UpdateRemoveVehicleForm.cs">
+    <Compile Include="CareContract\RemoveDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateRemoveVehicleForm.Designer.cs">
+    <Compile Include="CareContract\RemoveDetailForm.Designer.cs">
+      <DependentUpon>RemoveDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CareContract\CaringContractListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CareContract\CaringContractListForm.Designer.cs">
+      <DependentUpon>CaringContractListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalProjectDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalProjectDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinalProjectDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalProjectDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinalProjectDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalProjectDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePrice.Designer.cs">
+      <DependentUpon>ManagePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageShift.Designer.cs">
+      <DependentUpon>ManageShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManualArrange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManualArrange.Designer.cs">
+      <DependentUpon>ManualArrange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\RemoveStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\RemoveStaff.Designer.cs">
+      <DependentUpon>RemoveStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent Contract\Supply\EndSupplyContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\Supply\EndSupplyContract.Designer.cs">
+      <DependentUpon>EndSupplyContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent Contract\Supply\CheckContractStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\Supply\CheckContractStatus.Designer.cs">
+      <DependentUpon>CheckContractStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CustomerRent.cs" />
+    <Compile Include="Rent Contract\Rent\EndContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\Rent\EndContractForm.Designer.cs">
+      <DependentUpon>EndContractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent Contract\Rent\CustomerRentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\Rent\CustomerRentForm.Designer.cs">
+      <DependentUpon>CustomerRentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent Contract\Supply\CustomerSupplyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\Supply\CustomerSupplyForm.Designer.cs">
+      <DependentUpon>CustomerSupplyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CareContract\AddDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CareContract\AddDetailForm.Designer.cs">
+      <DependentUpon>AddDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CaringContract.cs" />
+    <Compile Include="ContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactForm.Designer.cs">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Globals.cs" />
+    <Compile Include="CareContract\DetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CareContract\DetailForm.Designer.cs">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Revenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Revenue.Designer.cs">
+      <DependentUpon>Revenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\StaffList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\StaffList.Designer.cs">
+      <DependentUpon>StaffList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CustomerSupply.cs" />
+    <Compile Include="Rent Contract\RentVehicleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\RentVehicleList.Designer.cs">
+      <DependentUpon>RentVehicleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent Contract\ContractListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rent Contract\ContractListForm.Designer.cs">
+      <DependentUpon>ContractListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CareContract\RemoveUpdateCaringContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CareContract\RemoveUpdateCaringContractForm.Designer.cs">
+      <DependentUpon>RemoveUpdateCaringContractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateStaff.Designer.cs">
+      <DependentUpon>UpdateStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle\Statistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicle\Statistic.Designer.cs">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle\UpdateRemoveVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicle\UpdateRemoveVehicleForm.Designer.cs">
       <DependentUpon>UpdateRemoveVehicleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle\UpdateSlotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicle\UpdateSlotForm.Designer.cs">
+      <DependentUpon>UpdateSlotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle\VehicleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicle\VehicleList.Designer.cs">
+      <DependentUpon>VehicleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\WatchShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\WatchShift.Designer.cs">
+      <DependentUpon>WatchShift.cs</DependentUpon>
     </Compile>
     <Compile Include="Work\WorkListForm.cs">
       <SubType>Form</SubType>
@@ -135,16 +312,16 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu_Intaker.cs">
+    <Compile Include="Vehicle\MainMenu_Intaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu_Intaker.Designer.cs">
+    <Compile Include="Vehicle\MainMenu_Intaker.Designer.cs">
       <DependentUpon>MainMenu_Intaker.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu_Outtaker.cs">
+    <Compile Include="Vehicle\MainMenu_Outtaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu_Outtaker.Designer.cs">
+    <Compile Include="Vehicle\MainMenu_Outtaker.Designer.cs">
       <DependentUpon>MainMenu_Outtaker.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagerMainMenu.cs">
@@ -165,8 +342,80 @@
     <Compile Include="Classes\Staff.cs" />
     <Compile Include="Classes\Vehicle.cs" />
     <Compile Include="Classes\Work.cs" />
-    <EmbeddedResource Include="UpdateRemoveVehicleForm.resx">
+    <EmbeddedResource Include="CareContract\CaringContractListForm.resx">
+      <DependentUpon>CaringContractListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CareContract\RemoveDetailForm.resx">
+      <DependentUpon>RemoveDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactForm.resx">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePrice.resx">
+      <DependentUpon>ManagePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageShift.resx">
+      <DependentUpon>ManageShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManualArrange.resx">
+      <DependentUpon>ManualArrange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\RemoveStaff.resx">
+      <DependentUpon>RemoveStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\Supply\EndSupplyContract.resx">
+      <DependentUpon>EndSupplyContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\Supply\CheckContractStatus.resx">
+      <DependentUpon>CheckContractStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\Rent\EndContractForm.resx">
+      <DependentUpon>EndContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\Rent\CustomerRentForm.resx">
+      <DependentUpon>CustomerRentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\Supply\CustomerSupplyForm.resx">
+      <DependentUpon>CustomerSupplyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CareContract\AddDetailForm.resx">
+      <DependentUpon>AddDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CareContract\DetailForm.resx">
+      <DependentUpon>DetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Revenue.resx">
+      <DependentUpon>Revenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\StaffList.resx">
+      <DependentUpon>StaffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\RentVehicleList.resx">
+      <DependentUpon>RentVehicleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent Contract\ContractListForm.resx">
+      <DependentUpon>ContractListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CareContract\RemoveUpdateCaringContractForm.resx">
+      <DependentUpon>RemoveUpdateCaringContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStaff.resx">
+      <DependentUpon>UpdateStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicle\Statistic.resx">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicle\UpdateRemoveVehicleForm.resx">
       <DependentUpon>UpdateRemoveVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicle\UpdateSlotForm.resx">
+      <DependentUpon>UpdateSlotForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicle\VehicleList.resx">
+      <DependentUpon>VehicleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\WatchShift.resx">
+      <DependentUpon>WatchShift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Work\WorkListForm.resx">
       <DependentUpon>WorkListForm.cs</DependentUpon>
@@ -186,10 +435,10 @@
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu_Intaker.resx">
+    <EmbeddedResource Include="Vehicle\MainMenu_Intaker.resx">
       <DependentUpon>MainMenu_Intaker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu_Outtaker.resx">
+    <EmbeddedResource Include="Vehicle\MainMenu_Outtaker.resx">
       <DependentUpon>MainMenu_Outtaker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerMainMenu.resx">
@@ -207,6 +456,39 @@
     <EmbeddedResource Include="ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="FinalProjectDataSet.xsc">
+      <DependentUpon>FinalProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinalProjectDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinalProjectDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinalProjectDataSet.xss">
+      <DependentUpon>FinalProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinalProjectDataSet1.xsc">
+      <DependentUpon>FinalProjectDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinalProjectDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinalProjectDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinalProjectDataSet1.xss">
+      <DependentUpon>FinalProjectDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinalProjectDataSet2.xsc">
+      <DependentUpon>FinalProjectDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinalProjectDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinalProjectDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinalProjectDataSet2.xss">
+      <DependentUpon>FinalProjectDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -222,8 +504,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Image\" />
     <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\tải xuống.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Tesseract.4.1.1\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.4.1.1\build\Tesseract.targets')" />

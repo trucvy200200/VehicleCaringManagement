@@ -44,11 +44,16 @@ namespace FInalProject
                 {
                     MessageBox.Show("This Work Name Already Exists", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+        }
             catch
             {
                 MessageBox.Show("ID already exists");
             }
+}
+
+        private void AddWorkForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
